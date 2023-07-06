@@ -1,0 +1,31 @@
+{% assign capabilities = site.capabilities %}
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>AR.js</th>
+        <th>WebXR</th>
+        <th>via GPS (AR.js)</th>
+        <th>via GPS (WebXR)</th>
+        <th>Info</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    </tr>
+    {% for capability in capabilities %}
+      <tr>
+        <th>{{ capability.title }}</th>
+        <td>{{ capability.implemented[0].ARjs }}</td>
+        <td>{{ capability.implemented[1].WebXR }}</td>
+        <td>{{ capability.via-gps-coords[0].ARjs }}</td>
+        <td>{{ capability.via-gps-coords[1].WebXR }}</td>
+        <td>{{ capability.info }} </td>
+        <td>{{ capability.comment }} </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>

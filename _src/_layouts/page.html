@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<main class="page">
+  <h1>{{page.title}}</h1>
+{{content}}
+  {% if page.slideshow %}
+  {% include slideshow.html %}
+  {% endif %}
+</main>

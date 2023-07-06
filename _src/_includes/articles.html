@@ -1,0 +1,22 @@
+{% assign articles = site.articles %}
+
+<div class="article-overview">
+    {% for article in articles %}
+    <div class="article-overview-item">
+        <header>
+            <h3 class="article-overview-item__title">{{ article.title }}</h3>
+            <h4 class="article-overview-item__subtitle">{{ article.date | date: "%d.%m.%Y" }}</h4>
+            {% if article.tags.size > 0 %}
+            <ul class="tags">
+                <li>{{ article.tags | sort | join: "</li><li>" }}</li>
+            </ul>
+            {% endif %}
+
+            <div class="article-teasertext">
+            {{ article.excerpt }} <a class="article-teasertext__link" href="{{ article.url | relative_url }}">weiter lesen</a>
+            </div>
+        </header>
+        <p>{{ article.description }}</p>
+    </div>
+    {% endfor %}
+</div>

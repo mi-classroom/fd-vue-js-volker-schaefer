@@ -1,0 +1,124 @@
+/* stylelint-disable selector-class-pattern */
+
+/* Slideshow
+############################################################################ */
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--m);
+}
+
+.slideshow__slides {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slideshow__slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+.slideshow__slide figcaption {
+  font-size: smaller;
+  line-height: var(--lh-tight);
+}
+
+.slideshow__slide img {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--xs);
+  aspect-ratio: 16/9;
+}
+
+.slideshow__slide.is-active {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.slideshow__prev,
+.slideshow__next {
+  position: absolute;
+  z-index: 2;
+  top: 45%;
+  border: none;
+  background-color: transparent;
+  transform: translateY(-50%);
+}
+
+.slideshow__prev {
+  left: 0;
+}
+
+.slideshow__next {
+  right: 0;
+}
+
+.slideshow__prev i,
+.slideshow__next i {
+  margin: 0;
+  color: var(--lighter);
+  cursor: pointer;
+  font-size: 2rem;
+  text-shadow: var(--text-shadow);
+}
+
+.slideshow__controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.slideshow__dot-navigation {
+  position: absolute;
+  z-index: 2;
+  bottom: var(--half);
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.slideshow__dot-navigation-item {
+  position: relative;
+  display: inline-block;
+  margin: 0 var(--xs);
+}
+
+.slideshow__dot-navigation-item::before {
+  content: "";
+}
+
+.slideshow__dot-navigation-item button {
+  position: absolute;
+  overflow: hidden;
+  width: var(--s);
+  height: var(--s);
+  border: solid var(--border-width) var(--lightest);
+  background-color: var(--interaction-color);
+  border-radius: 50%;
+  color: var(--interaction-color);
+  opacity: var(--op-medium);
+}
+
+.slideshow__dot-navigation-item button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.slideshow__dot-navigation-item.is-active button {
+  border-color: var(--decoration-color);
+  background-color: var(--decoration-color);
+  color: var(--decoration-color);
+  opacity: 1;
+}

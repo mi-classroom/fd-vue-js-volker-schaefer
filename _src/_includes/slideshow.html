@@ -1,0 +1,35 @@
+<div class="slideshow">
+  <div class="slideshow__slides">
+    {% for slide in page.slideshow %}
+
+    {% assign slide_state = ''; %}
+    {% if page.slideshow.first.title == slide.title %}
+    {% assign slide_state = 'is-active'; %}
+    {% endif %}
+
+    <figure class="slideshow__slide {{slide_state}}">
+      {% assign img_url = "/articles/" %}
+      {% assign img_url = img_url | append: "images/" %}
+      {% assign img_url = img_url | append: slide.image %}
+      <img src="{{ img_url | relative_url }}" alt="{{ slide.title }}">
+      <figcaption class="slideshow__caption">
+        {{ slide.caption }}
+      </figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+  <div class="slideshow__controls">
+    <button class="slideshow__prev"><i class="icon">arrow_back_ios</i></button>
+    <button class="slideshow__next"><i class="icon">arrow_forward_ios</i></button>
+
+    <ul class="slideshow__dot-navigation">
+      {% for slide in page.slideshow %}
+      {% assign slide_state = ''; %}
+      {% if page.slideshow.first.title == slide.title %}
+      {% assign slide_state = 'is-active'; %}
+      {% endif %}
+      <li class="slideshow__dot-navigation-item {{slide_state}}"><button title="{{slide.title}}">{{slide.title}}</button></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
