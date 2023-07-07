@@ -36,7 +36,6 @@ const app = Vue.createApp({
     },
     prevSlide() {
       this.activeSlide = (this.activeSlide - 1 + this.numberOfSlides) % this.numberOfSlides;
-      console.log(this.activeSlide);
     },
     showSlide(index) {
       this.activeSlide = index;
